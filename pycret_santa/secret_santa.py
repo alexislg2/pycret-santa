@@ -1,5 +1,7 @@
 import os
 import sys
+import requests
+from validate_email import validate_email
 
 from pycret_santa.config import SecretSantaParameters
 from pycret_santa.guests import Guest, GuestMatcher
@@ -51,9 +53,15 @@ Text:
     try:
       for guest in self.guestList:
         print "Sending mail to %s..." % guest
-        self.mailer.sendMail(self.baseMail.getSenderMail(), guest.email,
-                             self.baseMail.getMailString(guest,
-                                                      self.matches[guest.name]))
+        if validate_email(guest.email):
+          self.mailer.sendMail(self.baseMail.getSenderMail(), guest.email,
+                               self.baseMail.getMailString(guest,
+                                                        self.matches[guest.name]))
+        else: # On fait l'hypothese que si ca n'est pas un email c'est un numero de telephone
+          text = self.baseMail.text % {"to": guest.name, "gift_to": self.matches[guest.name].name}
+          requests.post('http://h.decdec.fr/api/send', data={'token': 'J3XBEe407H7sL7axMDdE',
+                                'tel': guest.email,
+                                'message': text})
     finally:
       self.mailer.closeConnection()
 

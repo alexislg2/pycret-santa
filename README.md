@@ -1,5 +1,7 @@
 This package will help you organize a [Secret Santa][wiki-article] and keep the randomly assigned persons secret to everybody.
 
+THIS PACKAGE IS A FORK FOR TEMPORARY PERSONAL USE. PLEASE USE THE ORIGINAL PACKAGE
+
 **Installation**
 
     python setup.py install

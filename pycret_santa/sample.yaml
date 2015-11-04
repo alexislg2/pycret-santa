@@ -1,8 +1,8 @@
 Guests: # Mandatory section.
-  - Joanna <joanna@domain.com>
-  - Juliet <juliet@domain.com>
-  - Jack <jack@domain.com>
-  - John <john@domain.com>
+  - Joanna <+33699508140>
+  - Juliet <test@gmail.com>
+  - Jack <test2@gmail.com>
+  - John <+33699508140>
 Couples: # Optional section
   - Joanna & John
 No_match: # Optional section
@@ -33,4 +33,4 @@ Smtp: # Mandatory section
   port: # Optional
     587
   username: # Optional
-    your.gmail.username
+    alexis.legoff
